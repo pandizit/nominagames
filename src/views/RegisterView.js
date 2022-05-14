@@ -1,15 +1,11 @@
 import { Form, Input, InputNumber, PageHeader, Button, message } from "antd";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { sessionService } from "redux-react-session";
 import Globalvar from "../Globalvar";
-import { setUser } from "../redux/reducers/UserReducer";
 
 function RegisterView(){
 
     const nav = useNavigate();
-    const dispatch = useDispatch();
     const finish = e => {        
         if(e['password']!==e['password2']){
             message.error('Password Tidak Sama !');
@@ -17,14 +13,9 @@ function RegisterView(){
             axios.post(Globalvar.app_url+'/user/register', e).then(res=>{
                 if(res.data.status===1){
                     message.success(res.data.message);
-                    let user = res.data.user;
-                    sessionService.saveUser(user).then(()=>{
-                        setTimeout(()=>{
-                            dispatch(setUser(user));
-                            nav('/');
-                        }, 2000);
-                    });
-                    
+                    setTimeout(()=>{
+                        nav('/');
+                    }, 2000);
                 } else {
                     message.warning(res.data.message);
                 }

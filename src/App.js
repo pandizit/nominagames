@@ -34,10 +34,10 @@ function App(){
             :
                 <>
                 <Menu mode="horizontal">
-                    <Menu.Item><Link to='/'>Users List</Link></Menu.Item>
-                    <Menu.Item><Link to='/hobby'>Hobby</Link></Menu.Item>
+                    <Menu.Item key={1}><Link to='/'>Users List</Link></Menu.Item>
+                    <Menu.Item key={2}><Link to='/hobby'>Hobby</Link></Menu.Item>
                     
-                    <Menu.Item><Link to='/logout'>Log Out</Link></Menu.Item>
+                    <Menu.Item key={3}><Link to='/logout'>Log Out</Link></Menu.Item>
                 </Menu>
                 <Routes>
                     <Route path="/" element={<UserView />} />

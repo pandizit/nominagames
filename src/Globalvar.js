@@ -1,7 +1,7 @@
 
 class Globalvar {
 
-    static app_url = 'http://192.168.1.9/nominagames/public';
+    static app_url = 'http://localhost/nominagames_api/public';
 
 }
 
